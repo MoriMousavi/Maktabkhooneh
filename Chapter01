@@ -1,0 +1,37 @@
+#this is program to calculate the biggest amount between 10 imput data that has the most Prime maghsoom alayh
+#isprime is prepared to check if a number is prime or not
+
+def isprime(number):
+    k=2
+    result=1
+    while k<=number//2:
+        if number%k==0:
+            result=0
+        k=k+1
+    return result
+
+#the main program\
+
+max_amount=0
+max_prime=0
+for i in range(0,10):
+    j=int(input("Please Enter your numbers:"))
+    print (j)
+    k=2
+    max_prime2=0
+    while k<=j/2:
+        
+        if isprime(k):
+            print (k)
+            if j%k==0:
+                max_prime2=max_prime2+1
+        k=k+1
+    if max_prime2>max_prime:
+        max_amount=j
+        max_prime=max_prime2
+    elif max_prime2==max_prime:
+        if j>max_amount:
+            max_amount=j
+
+print(max_amount,max_prime)
+                
