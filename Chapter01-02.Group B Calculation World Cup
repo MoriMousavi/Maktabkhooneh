@@ -19,20 +19,20 @@ def scores_update(table,Mizban,MizbanGoal,Mihman,MihmanGoal):
 output={"Iran":{"W":0,"L":0,"D":0,"GD":0,"P":0},
         "Spain":{"W":0,"L":0,"D":0,"GD":0,"P":0},
         "Portugal":{"W":0,"L":0,"D":0,"GD":0,"P":0},
-        "Morroco":{"W":0,"L":0,"D":0,"GD":0,"P":0}}
+        "Morocco":{"W":0,"L":0,"D":0,"GD":0,"P":0}}
 
 IS=input().split("-")
 scores_update(output,"Iran",int(IS[0]),"Spain",int(IS[1]))
 IS=input().split("-")
 scores_update(output,"Iran",int(IS[0]),"Portugal",int(IS[1]))
 IS=input().split("-")
-scores_update(output,"Iran",int(IS[0]),"Morroco",int(IS[1]))
+scores_update(output,"Iran",int(IS[0]),"Morocco",int(IS[1]))
 IS=input().split("-")
 scores_update(output,"Spain",int(IS[0]),"Portugal",int(IS[1]))
 IS=input().split("-")
-scores_update(output,"Spain",int(IS[0]),"Morroco",int(IS[1]))
+scores_update(output,"Spain",int(IS[0]),"Morocco",int(IS[1]))
 IS=input().split("-")
-scores_update(output,"Portugal",int(IS[0]),"Morroco",int(IS[1]))
+scores_update(output,"Portugal",int(IS[0]),"Morocco",int(IS[1]))
 
 rank=list(output.keys())
 for i in range (0,4):
@@ -55,5 +55,5 @@ for i in range (0,4):
                 rank[j]=vir
 
 for i in range (0,4):
-    print(rank[i]," wins:",output[rank[i]]["W"],", loses:",output[rank[i]]["L"],", draws:",output[rank[i]]["D"],", goal difference:",output[rank[i]]["GD"],", points:",output[rank[i]]["P"])
-                
+    print("{}  wins:{} , loses:{} , draws:{} , goal difference:{} , points:{}".format(rank[i],output[rank[i]]["W"],output[rank[i]]["L"],output[rank[i]]["D"],output[rank[i]]["GD"],output[rank[i]]["P"]))
+    #print(rank[i]," wins:",output[rank[i]]["W"],", loses:",output[rank[i]]["L"],", draws:",output[rank[i]]["D"],", goal difference:",output[rank[i]]["GD"],", points:",output[rank[i]]["P"])
