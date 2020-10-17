@@ -49,11 +49,9 @@ for i in range (0,4):
                 rank[i]=rank[j]
                 rank[j]=vir
             elif output[rank[i]]["P"]==output[rank[j]]["P"] and output[rank[i]]["W"]==output[rank[j]]["W"] and rank[i]>rank[j]:
-                print(rank[i]<rank[j])
                 vir=rank[i]
                 rank[i]=rank[j]
                 rank[j]=vir
 
 for i in range (0,4):
     print("{}  wins:{} , loses:{} , draws:{} , goal difference:{} , points:{}".format(rank[i],output[rank[i]]["W"],output[rank[i]]["L"],output[rank[i]]["D"],output[rank[i]]["GD"],output[rank[i]]["P"]))
-    #print(rank[i]," wins:",output[rank[i]]["W"],", loses:",output[rank[i]]["L"],", draws:",output[rank[i]]["D"],", goal difference:",output[rank[i]]["GD"],", points:",output[rank[i]]["P"])
