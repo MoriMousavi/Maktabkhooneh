@@ -1,0 +1,59 @@
+#a program to calculate the chart of B group of National World Cup
+def scores_update(table,Mizban,MizbanGoal,Mihman,MihmanGoal):
+    table[Mizban]["GD"]=table[Mizban]["GD"]+MizbanGoal-MihmanGoal
+    table[Mihman]["GD"]=table[Mihman]["GD"]+MihmanGoal-MizbanGoal
+    if (MizbanGoal>MihmanGoal):
+        table[Mizban]["W"]=table[Mizban]["W"]+1
+        table[Mihman]["L"]=table[Mihman]["L"]+1
+        table[Mizban]["P"]=table[Mizban]["P"]+3
+    elif (MizbanGoal<MihmanGoal):
+        table[Mihman]["W"]=table[Mihman]["W"]+1
+        table[Mizban]["L"]=table[Mizban]["L"]+1
+        table[Mihman]["P"]=table[Mihman]["P"]+3
+    else:
+        table[Mizban]["D"]=table[Mizban]["D"]+1
+        table[Mihman]["D"]=table[Mihman]["D"]+1
+        table[Mizban]["P"]=table[Mizban]["P"]+1
+        table[Mihman]["P"]=table[Mihman]["P"]+1
+
+output={"Iran":{"W":0,"L":0,"D":0,"GD":0,"P":0},
+        "Spain":{"W":0,"L":0,"D":0,"GD":0,"P":0},
+        "Portugal":{"W":0,"L":0,"D":0,"GD":0,"P":0},
+        "Morroco":{"W":0,"L":0,"D":0,"GD":0,"P":0}}
+
+IS=input().split("-")
+scores_update(output,"Iran",int(IS[0]),"Spain",int(IS[1]))
+IS=input().split("-")
+scores_update(output,"Iran",int(IS[0]),"Portugal",int(IS[1]))
+IS=input().split("-")
+scores_update(output,"Iran",int(IS[0]),"Morroco",int(IS[1]))
+IS=input().split("-")
+scores_update(output,"Spain",int(IS[0]),"Portugal",int(IS[1]))
+IS=input().split("-")
+scores_update(output,"Spain",int(IS[0]),"Morroco",int(IS[1]))
+IS=input().split("-")
+scores_update(output,"Portugal",int(IS[0]),"Morroco",int(IS[1]))
+
+rank=list(output.keys())
+for i in range (0,4):
+    for j in range(i+1,4):
+        if i==j:
+            continue
+        else:
+            if output[rank[i]]["P"]<output[rank[j]]["P"]:
+                vir=rank[i]
+                rank[i]=rank[j]
+                rank[j]=vir
+            elif output[rank[i]]["P"]==output[rank[j]]["P"] and output[rank[i]]["W"]<output[rank[j]]["W"]:
+                vir=rank[i]
+                rank[i]=rank[j]
+                rank[j]=vir
+            elif output[rank[i]]["P"]==output[rank[j]]["P"] and output[rank[i]]["W"]==output[rank[j]]["W"] and rank[i]>rank[j]:
+                print(rank[i]<rank[j])
+                vir=rank[i]
+                rank[i]=rank[j]
+                rank[j]=vir
+
+for i in range (0,4):
+    print(rank[i]," wins:",output[rank[i]]["W"],", loses:",output[rank[i]]["L"],", draws:",output[rank[i]]["D"],", goal difference:",output[rank[i]]["GD"],", points:",output[rank[i]]["P"])
+                
